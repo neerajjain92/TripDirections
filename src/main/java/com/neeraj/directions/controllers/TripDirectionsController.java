@@ -9,6 +9,7 @@ import com.google.maps.errors.ApiException;
 import com.google.maps.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -41,9 +42,10 @@ public class TripDirectionsController {
     private final static String UNDERSCORE = "_";
     private final static String HYPHEN = "-";
 
-    static {
+    @Value("${GOOGLE_API_KEY}")
+    public void setAPIKey(String API_KEY) {
         geoApiContext = new GeoApiContext.Builder()
-                .apiKey("YOUR_API_KEY") // Go ahead and put your own API key.
+                .apiKey(API_KEY) // Go ahead and put your own API key.
                 .build();
     }
 
