@@ -38,12 +38,12 @@ public class TripDirectionsController {
     private final static String WHITESPACE = " ";
     private final static String DOUBLE_QUOTES = "\"";
     private final static String NEW_LINE = "\n";
-    private final static String UNDERSCORE = " ";
+    private final static String UNDERSCORE = "_";
     private final static String HYPHEN = "-";
 
     static {
         geoApiContext = new GeoApiContext.Builder()
-                .apiKey("REPLACE_YOUR_API_KEY") // Go ahead and put your own API key.
+                .apiKey("YOUR_API_KEY") // Go ahead and put your own API key.
                 .build();
     }
 
@@ -160,7 +160,7 @@ public class TripDirectionsController {
                     StringBuffer buffer = new StringBuffer();
                     buffer.append("lat=").append(DOUBLE_QUOTES).append(direction.lat).append(DOUBLE_QUOTES)
                             .append(WHITESPACE)
-                            .append("lng=").append(DOUBLE_QUOTES).append(direction.lat).append(DOUBLE_QUOTES);
+                            .append("lng=").append(DOUBLE_QUOTES).append(direction.lng).append(DOUBLE_QUOTES);
                     try {
                         out.write(buffer.toString());
                         out.write(NEW_LINE);
